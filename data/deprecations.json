@@ -1,0 +1,122 @@
+[
+  {
+    "provider": "aws",
+    "target": "aws-sdk-js-v2",
+    "aliases": ["aws-sdk-for-javascript-v2", "aws-sdk"],
+    "status": "sunset",
+    "deprecated_on": "2024-09-08",
+    "sunset_on": "2025-09-08",
+    "replacement": "AWS SDK for JavaScript v3",
+    "migration_url": "https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/migrating-to-v3.html",
+    "source_url": "https://aws.amazon.com/blogs/developer/announcing-end-of-support-for-aws-sdk-for-javascript-v2/",
+    "last_verified_at": "2026-08-08"
+  },
+  {
+    "provider": "stripe",
+    "target": "sources-api",
+    "aliases": ["sources", "stripe-sources"],
+    "status": "deprecated",
+    "deprecated_on": null,
+    "sunset_on": null,
+    "replacement": "Payment Intents / Setup Intents / Payment Methods API",
+    "migration_url": "https://docs.stripe.com/payments/payment-methods/transitioning",
+    "source_url": "https://docs.stripe.com/payments/older-apis",
+    "last_verified_at": "2026-08-08"
+  },
+  {
+    "provider": "twilio",
+    "target": "programmable-chat",
+    "aliases": ["chat-api", "twilio-chat"],
+    "status": "sunset",
+    "deprecated_on": null,
+    "sunset_on": "2022-07-25",
+    "replacement": "Twilio Conversations API",
+    "migration_url": "https://www.twilio.com/docs/conversations/migrating-chat-conversations",
+    "source_url": "https://www.twilio.com/en-us/changelog/programmable-chat-end-of-life-notice",
+    "last_verified_at": "2026-08-08"
+  },
+  {
+    "provider": "github",
+    "target": "dependency-graph-sbom-sync",
+    "aliases": ["sbom-api", "synchronous-sbom-api"],
+    "status": "deprecated",
+    "deprecated_on": "2026-05-12",
+    "sunset_on": "2026-11-13",
+    "replacement": "GET /{owner}/{repo}/dependency-graph/sbom/generate-report (asynchronous)",
+    "migration_url": "https://docs.github.com/en/rest/dependency-graph/sboms",
+    "source_url": "https://github.blog/changelog/2026-05-12-synchronous-sbom-api-deprecated/",
+    "last_verified_at": "2026-08-08"
+  },
+  {
+    "provider": "openai",
+    "target": "assistants-api",
+    "aliases": ["assistants"],
+    "status": "deprecated",
+    "deprecated_on": "2025-08-26",
+    "sunset_on": "2026-08-26",
+    "replacement": "Responses API / Conversations API",
+    "migration_url": "https://developers.openai.com/api/docs/assistants/migration",
+    "source_url": "https://developers.openai.com/api/docs/deprecations",
+    "last_verified_at": "2026-08-08"
+  },
+  {
+    "provider": "slack",
+    "target": "classic-apps",
+    "aliases": ["legacy-custom-bots"],
+    "status": "deprecated",
+    "deprecated_on": "2024-09-01",
+    "sunset_on": "2026-11-16",
+    "replacement": "Slack apps with granular OAuth permission scopes",
+    "migration_url": "https://docs.slack.dev/legacy/legacy-app-migration/migrating-classic-apps/",
+    "source_url": "https://docs.slack.dev/changelog/2025/07/29/classic-apps-extension/",
+    "last_verified_at": "2026-08-08"
+  },
+  {
+    "provider": "sendgrid",
+    "target": "v2-mail-send",
+    "aliases": ["mail-send-v2", "web-api-v2"],
+    "status": "deprecated",
+    "deprecated_on": null,
+    "sunset_on": null,
+    "replacement": "SendGrid Web API v3 Mail Send endpoint",
+    "migration_url": "https://www.twilio.com/docs/sendgrid/for-developers/migration-guides/v2-to-v3-api",
+    "source_url": "https://www.twilio.com/docs/sendgrid/v2-api/mail",
+    "last_verified_at": "2026-08-08"
+  },
+  {
+    "provider": "shopify",
+    "target": "rest-admin-api",
+    "aliases": ["rest-api", "admin-rest-api"],
+    "status": "deprecated",
+    "deprecated_on": "2024-10-01",
+    "sunset_on": null,
+    "replacement": "GraphQL Admin API",
+    "migration_url": "https://shopify.dev/docs/apps/build/graphql/migrate/learn-how",
+    "source_url": "https://shopify.dev/docs/api/admin-rest/latest/resources/deprecated-api-calls",
+    "last_verified_at": "2026-08-08"
+  },
+  {
+    "provider": "auth0",
+    "target": "rules-and-hooks",
+    "aliases": ["rules", "hooks"],
+    "status": "deprecated",
+    "deprecated_on": null,
+    "sunset_on": "2026-11-18",
+    "replacement": "Actions",
+    "migration_url": "https://auth0.com/docs/customize/actions/migrate/migrate-from-rules-to-actions",
+    "source_url": "https://auth0.com/docs/troubleshoot/product-lifecycle/deprecations-and-migrations",
+    "last_verified_at": "2026-08-08"
+  },
+  {
+    "provider": "paypal",
+    "target": "nvp-soap-api",
+    "aliases": ["nvp-api", "soap-api", "classic-api"],
+    "status": "deprecated",
+    "deprecated_on": null,
+    "sunset_on": null,
+    "replacement": "REST API (Orders v2 / Payments) via PayPal API Transformer",
+    "migration_url": "https://developer.paypal.com/upgrade/ec/guide/",
+    "source_url": "https://developer.paypal.com/api/nvp-soap/",
+    "last_verified_at": "2026-08-08"
+  }
+]

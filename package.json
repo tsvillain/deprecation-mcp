@@ -1,0 +1,32 @@
+{
+  "name": "deprecation-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for cross-vendor API/SDK deprecation and breaking-change tracking",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "deprecation-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "node --test dist/test/*.test.js",
+    "pretest": "npm run build"
+  },
+  "files": [
+    "dist",
+    "data"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3",
+    "@types/node": "^22.10.5"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
