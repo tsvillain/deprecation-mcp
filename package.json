@@ -1,6 +1,7 @@
 {
   "name": "deprecation-mcp",
   "version": "0.1.0",
+  "mcpName": "io.github.tsvillain/deprecation-mcp",
   "description": "MCP server for cross-vendor API/SDK deprecation and breaking-change tracking",
   "type": "module",
   "main": "dist/index.js",
