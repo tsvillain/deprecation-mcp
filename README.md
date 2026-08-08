@@ -115,4 +115,50 @@ npm test   # builds, then runs node:test against the lookup logic
 
 Edit `data/deprecations.json` directly — no build step or scraper needed, it's
 read at server startup. Each record needs a real `source_url` you actually
-checked and an accurate `last_verified_at`.
+checked and an accurate `last_verified_at`. When you re-verify a record,
+recompute its `content_hash` too (see below).
+
+## Drift detection
+
+Hand-checking ten `source_url`s every so often doesn't scale, and stale data
+is worse than no data. A weekly GitHub Action
+([`.github/workflows/check-drift.yml`](.github/workflows/check-drift.yml))
+fetches each record's `source_url`, hashes the response body (sha256), and
+compares it to the `content_hash` stored on the record at
+`last_verified_at`. If the hash changed, the page changed since it was last
+verified — the record is flagged, not auto-updated. **The automation never
+writes to `data/deprecations.json`**; a changed page only means "a human or
+agent needs to re-verify this record by hand," never an inferred new status.
+Wrong auto-inferred status is worse than no automation.
+
+When drift or a fetch failure is detected, the workflow opens (or updates) a
+single GitHub issue labeled `drift-check` summarizing which records need
+attention; it closes that issue automatically once a later run comes back
+clean.
+
+Run it locally:
+
+```bash
+npm run build
+npm run check-drift
+```
+
+Exits `0` if every record's hash still matches, `1` otherwise.
+
+All ten `source_url`s were fetched with a plain GET (no headless browser, no
+bot-protection workaround) when their `content_hash` baselines were seeded,
+and all ten succeeded. If a vendor later adds bot protection or a redirect
+that breaks the plain-GET fetch, that record will show up as
+`fetch_failed` in the weekly report rather than being silently skipped.
+
+**Known limitation:** the AWS blog post, Stripe docs page, and PayPal docs
+page (`aws/aws-sdk-js-v2`, `stripe/sources-api`, `paypal/nvp-soap-api`) embed
+per-request dynamic content — a nonce, timestamp, or session token that
+changes on every fetch even when the substantive page content hasn't. Their
+body hash is therefore not fully stable across requests, and the weekly
+check may occasionally flag one of these three as "drifted" even with no
+real change. This is disclosed rather than worked around (e.g. by stripping
+known-volatile substrings): a false-positive "please go look at this page"
+is an acceptable cost for a tool whose entire design principle is to never
+guess at a status. A human/agent re-verifying such a flagged record should
+expect it may be a false alarm.

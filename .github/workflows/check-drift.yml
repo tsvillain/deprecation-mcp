@@ -1,0 +1,53 @@
+name: Check drift
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # weekly, Monday 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  check-drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+      - run: npm ci
+      - run: npm run build
+
+      - name: Run drift check
+        id: drift
+        run: |
+          set +e
+          node dist/scripts/check-drift.js > drift-output.txt 2>&1
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+          cat drift-output.txt
+
+      - name: Report results
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXIT_CODE: ${{ steps.drift.outputs.exit_code }}
+        run: |
+          set -e
+          REPO="${{ github.repository }}"
+          gh label create drift-check --repo "$REPO" --color ededed --description "Weekly source_url drift check" 2>/dev/null || true
+          EXISTING_ISSUE=$(gh issue list --repo "$REPO" --label drift-check --state open --json number --jq '.[0].number')
+
+          if [ "$EXIT_CODE" != "0" ]; then
+            BODY=$(printf 'Weekly drift check found records needing re-verification.\n\n```\n%s\n```\n\nA changed page only means "go re-verify this record by hand" — this workflow never edits `data/deprecations.json` itself.' "$(cat drift-output.txt)")
+            if [ -n "$EXISTING_ISSUE" ]; then
+              gh issue edit "$EXISTING_ISSUE" --repo "$REPO" --body "$BODY"
+            else
+              gh issue create --repo "$REPO" --title "Drift check: records need re-verification" --label drift-check --body "$BODY"
+            fi
+          else
+            if [ -n "$EXISTING_ISSUE" ]; then
+              gh issue close "$EXISTING_ISSUE" --repo "$REPO" --comment "Drift check is clean again: all records match their last-verified content hash."
+            fi
+          fi
