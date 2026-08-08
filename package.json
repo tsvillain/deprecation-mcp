@@ -18,6 +18,21 @@
     "data"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsvillain/deprecation-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tsvillain/deprecation-mcp/issues"
+  },
+  "homepage": "https://github.com/tsvillain/deprecation-mcp#readme",
+  "author": "the deprecation-mcp contributors",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "api-deprecation",
+    "sdk-deprecation"
+  ],
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.30.0",
     "zod": "^3.24.1"
