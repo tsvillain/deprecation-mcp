@@ -11,6 +11,7 @@ export interface DeprecationRecord {
   migration_url: string | null;
   source_url: string;
   last_verified_at: string;
+  content_hash?: string;
 }
 
 export interface CheckDeprecationResult {

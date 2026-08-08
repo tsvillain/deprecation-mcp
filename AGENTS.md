@@ -11,6 +11,12 @@ This file is the project's committed home for project-intrinsic agent knowledge:
   missing/malformed/malshaped data file instead of throwing — keep diagnostics on stderr only, stdout is
   the MCP JSON-RPC channel.
 - Lookup/status logic: `src/lookup.ts`. Tests: `src/test/lookup.test.ts`.
+- Drift detection: `src/scripts/check-drift.ts` (`npm run check-drift`) fetches each record's `source_url`,
+  compares a sha256 hash to the record's `content_hash`, and only ever flags — it never writes `status`,
+  `deprecated_on`, etc. into `data/deprecations.json`. Runs weekly via
+  `.github/workflows/check-drift.yml`, which opens/updates a `drift-check`-labeled GitHub issue. See
+  README.md "Drift detection" for the known false-positive limitation on 3 records with dynamic page
+  content. When you re-verify a record by hand, recompute its `content_hash` too.
 
 ## Maintaining this file
 
