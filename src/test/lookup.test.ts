@@ -37,8 +37,8 @@ test("findRecord returns undefined for no match", () => {
   assert.equal(findRecord(records, "nope", "nope"), undefined);
 });
 
-test("dataset has 8-10 curated providers, each with required fields", () => {
-  assert.ok(records.length >= 8 && records.length <= 12, `expected 8-12 records, got ${records.length}`);
+test("dataset has curated providers, each with required fields", () => {
+  assert.ok(records.length >= 8 && records.length <= 30, `expected 8-30 records, got ${records.length}`);
   for (const r of records) {
     assert.ok(r.provider.length > 0, "provider must be set");
     assert.ok(r.target.length > 0, "target must be set");

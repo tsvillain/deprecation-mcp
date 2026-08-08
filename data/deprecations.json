@@ -157,5 +157,132 @@
     "source_url": "https://developer.paypal.com/api/nvp-soap/",
     "last_verified_at": "2026-08-08",
     "content_hash": "3c8d49fcc0f070b3ec4d67b5a0f11a40a62411675e1b1724b69d515aefc756d3"
+  },
+  {
+    "provider": "microsoft-graph",
+    "target": "graph-cli",
+    "aliases": [
+      "msgraph-cli",
+      "graph-command-line-interface"
+    ],
+    "status": "deprecated",
+    "deprecated_on": "2025-09-01",
+    "sunset_on": "2026-08-28",
+    "replacement": "Microsoft Graph PowerShell SDK",
+    "migration_url": "https://aka.ms/MSGraphPowerShellDocs",
+    "source_url": "https://devblogs.microsoft.com/microsoft365dev/microsoft-graph-cli-retirement/",
+    "last_verified_at": "2026-08-08",
+    "content_hash": "2d7587a8f2c11e52e4d06d127fb3f1e5b0248e7c722cc68e5118af5a8742a0fc"
+  },
+  {
+    "provider": "cloudflare",
+    "target": "service-key-authentication",
+    "aliases": [
+      "service-keys",
+      "x-auth-user-service-key"
+    ],
+    "status": "deprecated",
+    "deprecated_on": "2026-03-19",
+    "sunset_on": "2026-09-30",
+    "replacement": "API Tokens",
+    "migration_url": "https://developers.cloudflare.com/fundamentals/api/get-started/create-token/",
+    "source_url": "https://developers.cloudflare.com/changelog/post/2026-03-19-service-key-authentication-deprecated/",
+    "last_verified_at": "2026-08-08",
+    "content_hash": "6ed00a19a34e951697dbec86c4be044bcb040713b9c54fdb55d9c7acf6ac5238"
+  },
+  {
+    "provider": "zoom",
+    "target": "call-log-api-v1",
+    "aliases": [
+      "call-logs-api",
+      "phone-call-logs"
+    ],
+    "status": "deprecated",
+    "deprecated_on": "2026-04-06",
+    "sunset_on": null,
+    "replacement": "Call History API",
+    "migration_url": "https://developers.zoom.us/docs/phone/migrate/",
+    "source_url": "https://developers.zoom.us/changelog/phone/upcoming-deprecation-of-call-log-apis-and-enhancements-to-call-history-apis/",
+    "last_verified_at": "2026-08-08",
+    "content_hash": "96cf1ba4255372d45cc0d5a617b53e9fef684100eb2ce9cd3e4e9f4724dacc6b"
+  },
+  {
+    "provider": "docker-hub",
+    "target": "legacy-repository-endpoints",
+    "aliases": [
+      "legacy-create-repository",
+      "legacy-get-repository"
+    ],
+    "status": "deprecated",
+    "deprecated_on": "2025-09-19",
+    "sunset_on": null,
+    "replacement": "Create Repository / Get Repository / Check Repository endpoints (v2)",
+    "migration_url": "https://docs.docker.com/reference/api/hub/deprecated/",
+    "source_url": "https://docs.docker.com/reference/api/hub/deprecated/",
+    "last_verified_at": "2026-08-08",
+    "content_hash": "a582de07e026ca61b88073ed5217672cb059bde947cd8183c5cd1647e3dba5f4"
+  },
+  {
+    "provider": "datadog",
+    "target": "list-vulnerabilities-endpoint",
+    "aliases": [
+      "listvulnerabilities"
+    ],
+    "status": "deprecated",
+    "deprecated_on": "2026-04-24",
+    "sunset_on": null,
+    "replacement": "Vulnerability Management API (updated schema)",
+    "migration_url": "https://docs.datadoghq.com/security/vulnerabilities/",
+    "source_url": "https://raw.githubusercontent.com/DataDog/datadog-api-client-python/master/CHANGELOG.md",
+    "last_verified_at": "2026-08-08",
+    "content_hash": "d8a2e48e5d65c2a3e68943a763f466dad08dec01bb05b0cd95f7af31da19107e"
+  },
+  {
+    "provider": "kubernetes",
+    "target": "flowcontrol-v1beta3",
+    "aliases": [
+      "flowcontrol.apiserver.k8s.io/v1beta3",
+      "flowschema-v1beta3"
+    ],
+    "status": "sunset",
+    "deprecated_on": null,
+    "sunset_on": "2024-12-11",
+    "replacement": "flowcontrol.apiserver.k8s.io/v1 (available since v1.29)",
+    "migration_url": "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+    "source_url": "https://kubernetes.io/docs/reference/using-api/deprecation-guide/",
+    "last_verified_at": "2026-08-08",
+    "content_hash": "de33afcfe8810472958c2ce6a45b4e6b90f6dabe2c545306fdc0a523667ace8f"
+  },
+  {
+    "provider": "zendesk",
+    "target": "api-token-authentication",
+    "aliases": [
+      "api-tokens",
+      "support-api-tokens"
+    ],
+    "status": "deprecated",
+    "deprecated_on": "2026-06-01",
+    "sunset_on": "2027-04-30",
+    "replacement": "OAuth 2.0",
+    "migration_url": "https://developer.zendesk.com/api-reference/ticketing/introduction/#oauth-authentication",
+    "source_url": "https://support.zendesk.com/hc/en-us/articles/10851263566234-Announcing-the-removal-of-API-tokens-as-an-authentication-method-for-API-requests",
+    "last_verified_at": "2026-08-08",
+    "content_hash": "006c93b44176a9e5bdbb60dd6814e98c4a0bec1abe0c84f09c328cc6c387a748"
+  },
+  {
+    "provider": "notion",
+    "target": "archived-field",
+    "aliases": [
+      "archived-property",
+      "page-archived-field"
+    ],
+    "status": "sunset",
+    "deprecated_on": null,
+    "sunset_on": "2026-03-11",
+    "replacement": "in_trash field (Notion API version 2026-03-11)",
+    "migration_url": "https://developers.notion.com/guides/get-started/upgrade-guide-2026-03-11",
+    "source_url": "https://developers.notion.com/page/changelog",
+    "last_verified_at": "2026-08-08",
+    "content_hash": "c50605da0060a93ec26b2da31d72f9aa376eec8160dcd1d6ec90545e91ad2b15"
   }
 ]
