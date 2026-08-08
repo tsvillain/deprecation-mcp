@@ -7,7 +7,9 @@ This file is the project's committed home for project-intrinsic agent knowledge:
 - Build/test: `npm install && npm run build && npm test` (`pretest` builds; `node:test` runs against `dist/`).
 - Data lives in `data/deprecations.json`, read at server startup (see `src/data.ts`) — no DB, no scraper,
   no network calls at runtime. Every record needs a real `source_url` and accurate `last_verified_at`;
-  see README.md "Updating the dataset" for the bar.
+  see README.md "Updating the dataset" for the bar. `loadRecords()` fails loudly (stderr + exit 1) on a
+  missing/malformed/malshaped data file instead of throwing — keep diagnostics on stderr only, stdout is
+  the MCP JSON-RPC channel.
 - Lookup/status logic: `src/lookup.ts`. Tests: `src/test/lookup.test.ts`.
 
 ## Maintaining this file
